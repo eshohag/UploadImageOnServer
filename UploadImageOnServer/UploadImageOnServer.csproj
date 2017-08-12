@@ -152,16 +152,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708121342371_InitialDatabase.cs" />
-    <Compile Include="Migrations\201708121342371_InitialDatabase.Designer.cs">
-      <DependentUpon>201708121342371_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708121517458_ImageState.cs" />
-    <Compile Include="Migrations\201708121517458_ImageState.Designer.cs">
-      <DependentUpon>201708121517458_ImageState.cs</DependentUpon>
+    <Compile Include="Migrations\201708121856293_ImageFinal.cs" />
+    <Compile Include="Migrations\201708121856293_ImageFinal.Designer.cs">
+      <DependentUpon>201708121856293_ImageFinal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\ImageUpload.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,11 +216,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201708121342371_InitialDatabase.resx">
-      <DependentUpon>201708121342371_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708121517458_ImageState.resx">
-      <DependentUpon>201708121517458_ImageState.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201708121856293_ImageFinal.resx">
+      <DependentUpon>201708121856293_ImageFinal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

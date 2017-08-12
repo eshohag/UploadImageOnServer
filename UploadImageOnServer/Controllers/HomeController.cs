@@ -17,37 +17,40 @@ namespace UploadImageOnServer.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddImage(Brand model, HttpPostedFileBase image1)
+        public ActionResult AddImage(ImageUpload model, HttpPostedFileBase image1)
         {
             if (image1 != null)
             {
-                model.BrandImage = new byte[image1.ContentLength];
-                image1.InputStream.Read(model.BrandImage, 0, image1.ContentLength);
+                model.BinaryDataImage = new byte[image1.ContentLength];
+                image1.InputStream.Read(model.BinaryDataImage, 0, image1.ContentLength);
                 string fileName = image1.FileName;
                 model.FileName = fileName;
                 string fileType = image1.ContentType;
                 model.FileType = fileType;
-                if (fileType.ToLower() == "image/jpeg" || fileType.ToLower() == "image/png")
+                if (image1.ContentLength < 1024 * 1024)
                 {
-                    db.Brands.Add(model);
-                    db.SaveChanges();
-                    ViewBag.Success = "Upload Successfully";
+                    if (fileType.ToLower() == "image/jpeg" || fileType.ToLower() == "image/png")
+                    {
+                        db.ImageUploads.Add(model);
+                        db.SaveChanges();
+                        ViewBag.Success = "Upload Successfully";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Invalid Image Formate";
+                    }
                 }
                 else
                 {
-                    ViewBag.Message = "Invalid Image Formate";
+                    ViewBag.Message = "File Size only 1MB";
                 }
-
-
             }
             return View();
         }
 
-
         public ActionResult GetAll()
         {
-            var allImage = db.Brands.ToList();
-
+            var allImage = db.ImageUploads.ToList();
             return View(allImage);
         }
 

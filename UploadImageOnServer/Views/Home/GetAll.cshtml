@@ -1,13 +1,13 @@
 ﻿@using UploadImageOnServer.Models
-@model IEnumerable<UploadImageOnServer.Models.Brand>
+@model IEnumerable<UploadImageOnServer.Models.ImageUpload>
 
 @{
-    ViewBag.Title = "GetAll";
+    ViewBag.Title = "All";
 }
 
 <h2>Display All Image</h2>
 
-<div>
+<div class="col-md-12">
     <table border="2px solid red;">
         <tr>
             
@@ -17,14 +17,14 @@
             <th>Original Image</th>
 
         </tr>
-        @foreach (Brand item in @Model)
+        @foreach (var item in @Model)
         {
         <tr>
-            <td>@item.BrandID</td>
+            <td>@item.ImageUploadID</td>
             <td>@item.FileName</td>
             <td>@item.FileType</td>
             <td> @{
-                     var base64 = Convert.ToBase64String(item.BrandImage);
+                     var base64 = Convert.ToBase64String(item.BinaryDataImage);
                      var imageSource = string.Format("data:image/gif;base64,{0}", base64);
                  }
             <img src='@imageSource' style="max-height: 200px; width: 300px"/>

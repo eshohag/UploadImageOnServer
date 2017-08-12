@@ -7,13 +7,13 @@ namespace UploadImageOnServer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialDatabase : IMigrationMetadata
+    public sealed partial class ImageFinal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialDatabase));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ImageFinal));
         
         string IMigrationMetadata.Id
         {
-            get { return "201708121342371_InitialDatabase"; }
+            get { return "201708121856293_ImageFinal"; }
         }
         
         string IMigrationMetadata.Source

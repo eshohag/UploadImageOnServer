@@ -10,6 +10,6 @@ namespace UploadImageOnServer.Context
 
         }
 
-        public DbSet<Brand> Brands { get; set; }
+        public DbSet<ImageUpload> ImageUploads { get; set; }
     }
 }
