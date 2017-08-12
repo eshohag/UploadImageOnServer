@@ -45,6 +45,10 @@ namespace UploadImageOnServer.Controllers
                     ViewBag.Message = "File Size only 1MB";
                 }
             }
+            else
+            {
+                ViewBag.Message = "Please Select Your Image File";
+            }
             return View();
         }
 
