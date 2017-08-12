@@ -1,0 +1,36 @@
+﻿@using UploadImageOnServer.Models
+@model IEnumerable<UploadImageOnServer.Models.Brand>
+
+@{
+    ViewBag.Title = "GetAll";
+}
+
+<h2>Display All Image</h2>
+
+<div>
+    <table border="2px solid red;">
+        <tr>
+            
+            <th>ID</th>
+            <th>Image Name</th>
+            <th>File Type</th>
+            <th>Original Image</th>
+
+        </tr>
+        @foreach (Brand item in @Model)
+        {
+        <tr>
+            <td>@item.BrandID</td>
+            <td>@item.FileName</td>
+            <td>@item.FileType</td>
+            <td> @{
+                     var base64 = Convert.ToBase64String(item.BrandImage);
+                     var imageSource = string.Format("data:image/gif;base64,{0}", base64);
+                 }
+            <img src='@imageSource' style="max-height: 200px; width: 300px"/>
+                                
+            </td>
+        </tr>
+        }
+    </table>
+</div>
